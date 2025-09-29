@@ -142,7 +142,7 @@ h6{
     flex-direction: column;
     gap: 120px;
 }
-.container-busca-placas-search-top{
+.container-busca-placas-top{
     display: flex;
     flex-direction: row;
 }
