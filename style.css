@@ -219,8 +219,24 @@ h6 {
     background-color: var(--secundary-color);
     border-radius: 50px;
     display: flex;
+    padding: 40px;
     align-items: center;
     justify-content: center;
 
-
+}
+.container-busca-placas-botton-left{
+    background-color: white;
+    height: 420px;
+    width: 420px;
+}
+.container-busca-placas-botton-meio{
+    height: 420px;
+    width: 250px;
+}
+.container-busca-placas-botton-right{
+    height: 420px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
