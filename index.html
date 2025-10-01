@@ -10,16 +10,16 @@
 
 <body>
     <header>
-        <a href="#"><img src="./img/Logotipo.svg" alt=""></a>
+        <a href="#home"><img src="./img/Logotipo.svg" alt=""></a>
         <menu>
             <li>
-                <a href="#">Home</a>
+                <a href="#home">Home</a>
             </li>
             <li>
-                <a href="#">Busca Placas</a>
+                <a href="#busca-placas">Busca Placas</a>
             </li>
             <li>
-                <a href="#">Tabela FIPE</a>
+                <a href="#tabela-fipe">Tabela FIPE</a>
             </li>
             <li>
                 <a href="#">Contato</a>
@@ -33,7 +33,7 @@
         </button>
     </header>
     <main>
-        <section class="home">
+        <section class="home" id="home">
             <div class="container-top">
                 <div class="container-left">
                     <h5>Bem-vindo à Check Car !</h5>
@@ -62,11 +62,12 @@
                 </div>
             </div>
         </section>
-        <section class="busca-placas">
+        <section class="busca-placas" id="busca-placas">
             <h5>Busca Placas</h5>
             <div class="container-busca-placas-top">
                 <div class="container-search-left">
-                    <input type="text" placeholder="Digite a placa do veículo (ex: ABC-1234)" id="placa-veiculo" maxlength="8">
+                    <input type="text" placeholder="Digite a placa do veículo (ex: ABC-1234)" id="placa-veiculo"
+                        maxlength="8">
                 </div>
                 <button class="container-search-right">
                     <span>Buscar</span>
@@ -74,13 +75,39 @@
                 </button>
             </div>
             <div class="container-busca-placas-botton">
-                <div class="container-busca-placas-botton-left"></div>
-                <div class="container-busca-placas-botton-meio"></div>
-                <div class="container-busca-placas-botton-right"></div>
+                <div class="container-busca-placas-botton-left">
+                    <img src="img/Civic-Img-EX.png" alt="">
+                </div>
+                <div class="container-busca-placas-botton-meio">
+                    <div class="container-busca-placas-botton-meio-div">
+                        <span>Modelo e marca do carro:</span>
+                    </div>
+                    <div class="container-busca-placas-botton-meio-div">
+                        <span>Ano de fabricação:</span>
+                    </div>
+                    <div class="container-busca-placas-botton-meio-div">
+                        <span>Cor registrada:</span>
+                    </div>
+                    <div class="container-busca-placas-botton-meio-div">
+                        <span>Preço médio de mercado:</span>
+                    </div>
+                    <div class="container-busca-placas-botton-meio-div-maior">
+                        <span>Situação básica (emplacamento, status do veículo, etc.):</span>
+                    </div>
+                </div>
+                <div class="container-busca-placas-botton-right">
+                    <div class="container-busca-placas-botton-meio-div"></div>
+                    <div class="container-busca-placas-botton-meio-div"></div>
+                    <div class="container-busca-placas-botton-meio-div"></div>
+                    <div class="container-busca-placas-botton-meio-div"></div>
+                    <div class="container-busca-placas-botton-meio-div-maior"></div>
+                </div>
             </div>
         </section>
-        <section class="tabela-fipe">
-
+        <section class="tabela-fipe" id="tabela-fipe">
+            <h5>Tabela Fipe</h5>
+            <h6>Verifique os valores e preços de forma segura e rápida!</h6>
+            <div></div>
         </section>
         <section class="contato">
 

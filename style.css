@@ -213,6 +213,7 @@ h6 {
 .container-search-left input::placeholder {
     color: white;
 }
+
 .container-busca-placas-botton {
     height: 600px;
     width: 100%;
@@ -222,21 +223,68 @@ h6 {
     padding: 40px;
     align-items: center;
     justify-content: center;
+    gap: 100px;
 
 }
-.container-busca-placas-botton-left{
+
+.container-busca-placas-botton-left {
     background-color: white;
     height: 420px;
     width: 420px;
-    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5)
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.container-busca-placas-botton-meio{
+
+.container-busca-placas-botton-meio {
     height: 420px;
     width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
-.container-busca-placas-botton-right{
+
+.container-busca-placas-botton-right {
     height: 420px;
     width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-busca-placas-botton-meio-div {
+    height: 50px;
+    width: 250px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+}
+
+.container-busca-placas-botton-meio-div-maior {
+    height: 100px;
+    width: 250px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+}
+.tabela-fipe {
+    padding: 200px 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 120px;
+}
+.tabela-fipe h6 {
+    font-size: 2.0rem;
     display: flex;
     justify-content: center;
     align-items: center;
