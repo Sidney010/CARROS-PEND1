@@ -22,7 +22,7 @@
                 <a href="#tabela-fipe">Tabela FIPE</a>
             </li>
             <li>
-                <a href="#">Contato</a>
+                <a href="#contato">Contato</a>
             </li>
         </menu>
         <button>
@@ -107,13 +107,100 @@
         <section class="tabela-fipe" id="tabela-fipe">
             <h5>Tabela Fipe</h5>
             <h6>Verifique os valores e preços de forma segura e rápida!</h6>
-            <div></div>
+            <select class="select-tabela-fipe" name="tipo-veiculo" id="tipo-veiculo">
+                <option value="">Escolha o tipo do veiculo</option>
+                <option value="carros">Carros</option>
+                <option value="motos">Motos</option>
+                <option value="caminhoes">Caminhões</option>
+            </select>
+            <select class="select-tabela-fipe" name="marcas" id="marcas">
+                <option value="">Marcas Disponíveis</option>
+            </select>
+            <select class="select-tabela-fipe" name="modelos" id="modelos">
+                <option value="">Escolha o modelos</option>
+            </select>
+            <select class="select-tabela-fipe" name="ano" id="ano">
+                <option value="">Escolha o ano</option>
+            </select>
+            <div class="container-tabela-fipe">
+                <div class="container-tabela-fipe-top">
+                    <button class="container-search-right">
+                        <span>Buscar</span>
+                        <img src="./img/Lupa.svg" alt="">
+                    </button>
+                </div>
+                <div class="container-tabela-fipe-botton">
+                    <div class="container-tabela-fipe-botton-left">
+                        <img src="./img/Civic-Img-EX.png" alt="">
+                    </div>
+                    <div class="container-tabela-fipe-botton-meio">
+                        <div class="container-tabela-fipe-botton-meio-div">
+                            <span>Valor FIPE</span>
+                        </div>
+                        <div class="container-tabela-fipe-botton-meio-div">
+                            <span>Marca / Modelo</span>
+                        </div>
+                        <div class="container-tabela-fipe-botton-meio-div">
+                            <span>Ano / Combustível</span>
+                        </div>
+                        <div class="container-tabela-fipe-botton-meio-div">
+                            <span>Código FIPE</span>
+                        </div>
+                        <div class="container-tabela-fipe-botton-meio-div">
+                            <span>Mês de referência</span>
+                        </div>
+                    </div>
+                    <div class="container-tabela-fipe-botton-right">
+                        <div class="container-tabela-fipe-botton-right-div"></div>
+                        <div class="container-tabela-fipe-botton-right-div"></div>
+                        <div class="container-tabela-fipe-botton-right-div"></div>
+                        <div class="container-tabela-fipe-botton-right-div"></div>
+                        <div class="container-tabela-fipe-botton-right-div"></div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="contato">
-
+        <section class="contato" id="contato">
+            <h5>Contato - Entre em contato conosco</h5>
+            <div class="container-contato">
+                <div class="container-contato-left">
+                    <div>
+                        <img src="./img/Telefone-Icon.svg" alt="">
+                        <a href="http://">(xx) yyyyy-yyyy</a>
+                    </div>
+                    <div>
+                        <img src="./img/Facebook-Icon.svg" alt="">
+                        <a href="https://www.facebook.com/">Facebook</a>
+                    </div>
+                    <div>
+                        <img src="./img/Instagram-Icon.svg" alt="">
+                        <a href="https://www.instagram.com/">Instagram</a>
+                    </div>
+                </div>
+                <div class="container-contato-right">
+                    <div>
+                        <img src="./img/YouTube-Icon.svg" alt="">
+                        <a href="https://www.youtube.com/">YouTube</a>
+                    </div>
+                    <div>
+                        <img src="./img/TikTok-Icon.svg" alt="">
+                        <a href="http://www.tiktok.com/">TikTok</a>
+                    </div>
+                    <div>
+                        <img src="./img/LinkedIn-Icon.svg" alt="">
+                        <a href="https://br.linkedin.com/">LinkedIn</a>
+                    </div>
+                </div>
+                <div></div>
+            </div>
         </section>
     </main>
-
+    <footer>
+        <hr>
+        <div>
+            <img src="./img/Logotipo.svg" alt="">
+            <span>Sidney Campos Aragão - © Copyright 2025 - Todos os direitos reservados</span>
+        </div>
+    </footer>
 </body>
-
 </html>

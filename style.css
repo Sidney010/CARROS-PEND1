@@ -77,10 +77,9 @@ header div span {
 }
 
 section {
-    height: 100vh;
+    height: 115vh;
     padding: var(--default-padding);
 }
-
 .home {
     padding: 200px 200px;
     display: flex;
@@ -154,10 +153,10 @@ h6 {
 }
 
 .busca-placas {
-    padding: 200px 200px;
+    padding: 0px 200px;
     display: flex;
     flex-direction: column;
-    gap: 120px;
+    gap: 100px;
 }
 
 .container-busca-placas-top {
@@ -276,12 +275,13 @@ h6 {
     justify-content: left;
     padding: 10px;
 }
+
 .tabela-fipe {
     padding: 200px 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 120px;
+    gap: 50px;
 }
 .tabela-fipe h6 {
     font-size: 2.0rem;
@@ -289,3 +289,143 @@ h6 {
     justify-content: center;
     align-items: center;
 }
+.container-tabela-fipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+.container-tabela-fipe-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container-tabela-fipe-botton {
+    background-color: var(--third-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    padding: 25px;
+    gap: 100px;
+
+}
+.container-tabela-fipe-botton-left{
+    background-color: white;
+    height: 450px;
+    width: 450px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-tabela-fipe-botton-left img{
+    background-color: white;
+    height: 401px;
+    width: 401px;
+}
+.container-tabela-fipe-botton-meio{
+    height: 366px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.container-tabela-fipe-botton-meio div{
+    height: 50px;
+    width: 250px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+}
+.container-tabela-fipe-botton-right{
+    height: 366px;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.container-tabela-fipe-botton-right div {
+    height: 50px;
+    width: 250px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+}
+.select-tabela-fipe{
+    width: 400px;
+    height: 60px;
+    background-color: #0058AF;
+    font-size: 1.5rem;
+    padding: 10px;
+    color: white;
+}
+.contato{
+    padding: 200px 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 120px;
+}
+.container-contato{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-contato-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container-contato-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container-contato-right div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container-contato-left div{
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    padding: 200px 200px;
+}
+footer hr{
+    font-size: 2rem;
+}
+footer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: 200px;
+}
+footer div img{
+    width: 200px;
+}
+footer div span{
+    font-size: 1.5rem;
+}
+
