@@ -67,7 +67,8 @@
             <h5>Busca Placas</h5>
             <div class="container-busca-placas-top">
                 <div class="container-search-left">
-                    <input type="text" placeholder="Digite a placa do veículo (ex: ABC-1234)" id="placa-veiculo" maxlength="8">
+                    <input type="text" placeholder="Digite a placa do veículo (ex: ABC-1234)" id="placa-veiculo"
+                        maxlength="8">
                 </div>
                 <button class="container-search-right">
                     <span>Buscar</span>
@@ -107,32 +108,46 @@
         <section class="tabela-fipe" id="tabela-fipe">
             <h5>Tabela Fipe</h5>
             <h6>Verifique os valores e preços de forma segura e rápida!</h6>
+
+            <!-- SELEÇÃO DE TIPO DE VEÍCULO -->
             <select class="select-tabela-fipe" name="tipo-veiculo" id="tipo-veiculo">
-                <option value="">Escolha o tipo do veiculo</option>
+                <option value="">Escolha o tipo do veículo</option>
                 <option value="carros">Carros</option>
                 <option value="motos">Motos</option>
                 <option value="caminhoes">Caminhões</option>
             </select>
+
+            <!-- SELEÇÃO DE MARCA -->
             <select class="select-tabela-fipe" name="marcas" id="marcas">
                 <option value="">Marcas Disponíveis</option>
             </select>
+
+            <!-- SELEÇÃO DE MODELO -->
             <select class="select-tabela-fipe" name="modelos" id="modelos">
-                <option value="">Escolha o modelos</option>
+                <option value="">Escolha o modelo</option>
             </select>
+
+            <!-- SELEÇÃO DE ANO -->
             <select class="select-tabela-fipe" name="ano" id="ano">
                 <option value="">Escolha o ano</option>
             </select>
+
+            <!-- CONTAINER PRINCIPAL DA TABELA FIPE -->
             <div class="container-tabela-fipe">
+
                 <div class="container-tabela-fipe-top">
-                    <button class="container-search-right">
+                    <button type="button" class="container-search-right" id="buscar-fipe">
                         <span>Buscar</span>
-                        <img src="./img/Lupa.svg" alt="">
+                        <img src="./img/Lupa.svg" alt="Buscar">
                     </button>
                 </div>
+
                 <div class="container-tabela-fipe-botton">
+                    <!-- IMAGEM DO VEÍCULO -->
                     <div class="container-tabela-fipe-botton-left">
-                        <img src="./img/Civic-Img-EX.png" alt="">
+                        <img src="./img/Civic-Img-EX.png" alt="Imagem do veículo">
                     </div>
+
                     <div class="container-tabela-fipe-botton-meio">
                         <div class="container-tabela-fipe-botton-meio-div">
                             <span>Valor FIPE</span>
@@ -150,6 +165,8 @@
                             <span>Mês de referência</span>
                         </div>
                     </div>
+
+
                     <div class="container-tabela-fipe-botton-right">
                         <div class="container-tabela-fipe-botton-right-div"></div>
                         <div class="container-tabela-fipe-botton-right-div"></div>
@@ -159,6 +176,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
         <section class="contato" id="contato">
             <h5>Contato - Entre em contato conosco</h5>
@@ -203,4 +221,5 @@
         </div>
     </footer>
 </body>
+
 </html>
