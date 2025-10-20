@@ -139,7 +139,6 @@ botaoBuscar.addEventListener("click", async (e) => {
     }
 })
 
-// 🔧 Função para atualizar imagem e exibir mensagem se não encontrada
 function atualizarImagem(nome) {
     const marca = marcasSelect.options[marcasSelect.selectedIndex]?.text || ''
     const nomeFormatado = nome.toLowerCase().replace(/\s+/g, '-')
