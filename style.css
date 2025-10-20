@@ -301,6 +301,10 @@ h6 {
     align-items: center;
 
 }
+.container-search-right:hover{
+    transition: 0.2s;
+    opacity: 70%;
+}
 .container-tabela-fipe-botton {
     background-color: var(--third-color);
     width: 100%;
