@@ -6,28 +6,18 @@ const modelosSelect = document.getElementById("modelos")
 const anosSelect = document.getElementById("ano")
 const botaoBuscar = document.getElementById("buscar-fipe")
 const imagemVeiculo = document.getElementById("imagem-veiculo")
+const mensagemImagem = document.getElementById("mensagem-imagem")
 
-// Cria um elemento de mensagem que aparecerá quando não houver imagem
-const mensagemImagem = document.createElement("p")
-mensagemImagem.id = "mensagem-imagem"
-mensagemImagem.style.textAlign = "center"
-mensagemImagem.style.fontSize = "14px"
-mensagemImagem.style.color = "#ccc"
-mensagemImagem.style.marginTop = "10px"
-imagemVeiculo.parentElement.appendChild(mensagemImagem)
-
-// Elementos onde serão exibidos os resultados
 const resultadoDivs = document.querySelectorAll(".container-tabela-fipe-botton-right-div")
 
-// URL base da API FIPE
-const API_BASE = "https://parallelum.com.br/fipe/api/v1"
+const API_FIPE = "https://parallelum.com.br/fipe/api/v1"
+const API_IMAGE = "https://api.auto-data.net/image-database" // URL base Auto-Data
 
-// Função para limpar selects
 function limparSelect(select, textoPadrao) {
     select.innerHTML = `<option value="">${textoPadrao}</option>`
 }
 
-// Quando o tipo de veículo é selecionado
+// ---------------- FIPE ----------------
 tipoVeiculoSelect.addEventListener("change", async () => {
     const tipo = tipoVeiculoSelect.value
     limparSelect(marcasSelect, "Marcas Disponíveis")
@@ -37,21 +27,19 @@ tipoVeiculoSelect.addEventListener("change", async () => {
     if (!tipo) return
 
     try {
-        const response = await fetch(`${API_BASE}/${tipo}/marcas`)
+        const response = await fetch(`${API_FIPE}/${tipo}/marcas`)
         const marcas = await response.json()
-
         marcas.forEach(marca => {
             const option = document.createElement("option")
             option.value = marca.codigo
             option.textContent = marca.nome
             marcasSelect.appendChild(option)
         })
-    } catch (error) {
-        console.error("Erro ao carregar marcas:", error)
+    } catch (erro) {
+        console.error("Erro ao carregar marcas:", erro)
     }
 })
 
-// Quando a marca é selecionada
 marcasSelect.addEventListener("change", async () => {
     const tipo = tipoVeiculoSelect.value
     const marcaNome = marcasSelect.options[marcasSelect.selectedIndex].text
@@ -63,7 +51,7 @@ marcasSelect.addEventListener("change", async () => {
     if (!marcaCodigo) return
 
     try {
-        const response = await fetch(`${API_BASE}/${tipo}/marcas/${marcaCodigo}/modelos`)
+        const response = await fetch(`${API_FIPE}/${tipo}/marcas/${marcaCodigo}/modelos`)
         const data = await response.json()
 
         data.modelos.forEach(modelo => {
@@ -73,14 +61,13 @@ marcasSelect.addEventListener("change", async () => {
             modelosSelect.appendChild(option)
         })
 
-        // Atualiza imagem com base na marca
+        // Atualiza imagem da marca
         atualizarImagem(marcaNome)
-    } catch (error) {
-        console.error("Erro ao carregar modelos:", error)
+    } catch (erro) {
+        console.error("Erro ao carregar modelos:", erro)
     }
 })
 
-// Quando o modelo é selecionado
 modelosSelect.addEventListener("change", async () => {
     const tipo = tipoVeiculoSelect.value
     const marcaNome = marcasSelect.options[marcasSelect.selectedIndex].text
@@ -91,9 +78,8 @@ modelosSelect.addEventListener("change", async () => {
     if (!modeloNome) return
 
     try {
-        const response = await fetch(`${API_BASE}/${tipo}/marcas/${marcaCodigo}/modelos/${modelosSelect.value}/anos`)
+        const response = await fetch(`${API_FIPE}/${tipo}/marcas/${marcaCodigo}/modelos/${modelosSelect.value}/anos`)
         const anos = await response.json()
-
         anos.forEach(ano => {
             const option = document.createElement("option")
             option.value = ano.codigo
@@ -101,14 +87,12 @@ modelosSelect.addEventListener("change", async () => {
             anosSelect.appendChild(option)
         })
 
-        // Atualiza imagem com base no modelo completo
         atualizarImagem(`${marcaNome} ${modeloNome}`)
-    } catch (error) {
-        console.error("Erro ao carregar anos:", error)
+    } catch (erro) {
+        console.error("Erro ao carregar anos:", erro)
     }
 })
 
-// Botão buscar
 botaoBuscar.addEventListener("click", async (e) => {
     e.preventDefault()
 
@@ -123,7 +107,7 @@ botaoBuscar.addEventListener("click", async (e) => {
     }
 
     try {
-        const response = await fetch(`${API_BASE}/${tipo}/marcas/${marca}/modelos/${modelo}/anos/${ano}`)
+        const response = await fetch(`${API_FIPE}/${tipo}/marcas/${marca}/modelos/${modelo}/anos/${ano}`)
         if (!response.ok) throw new Error(`HTTP ${response.status}`)
         const veiculo = await response.json()
 
@@ -132,42 +116,39 @@ botaoBuscar.addEventListener("click", async (e) => {
         resultadoDivs[2].textContent = `${veiculo.AnoModelo} / ${veiculo.Combustivel}`
         resultadoDivs[3].textContent = veiculo.CodigoFipe
         resultadoDivs[4].textContent = veiculo.MesReferencia
-
-    } catch (error) {
-        console.error("Erro ao buscar dados FIPE:", error)
+    } catch (erro) {
+        console.error("Erro ao buscar dados FIPE:", erro)
         alert("Erro ao buscar dados. Verifique o console.")
     }
 })
 
-function atualizarImagem(nome) {
-    const marca = marcasSelect.options[marcasSelect.selectedIndex]?.text || ''
-    const nomeFormatado = nome.toLowerCase().replace(/\s+/g, '-')
-    const marcaFormatada = marca.toLowerCase().replace(/\s+/g, '-')
+// ---------------- Imagens ----------------
+async function atualizarImagem(nomeCompleto) {
+    const [marca, modelo] = nomeCompleto.split(' ')
+    const imagemPadrao = './img/default-car.png'
 
-    const imagemModelo = `./img/${nomeFormatado}.png`
-    const imagemMarca = `./img/${marcaFormatada}.png`
-    const imagemPadrao = `./img/default-car.png`
-
-    const img = new Image()
-
-    img.src = imagemModelo
-    img.onload = () => {
-        imagemVeiculo.src = imagemModelo
-        mensagemImagem.textContent = ""
+    if (!marca) {
+        imagemVeiculo.src = imagemPadrao
+        mensagemImagem.textContent = "Nenhuma imagem disponível."
+        return
     }
 
-    img.onerror = () => {
-        // Tenta imagem da marca
-        const imgMarca = new Image()
-        imgMarca.src = imagemMarca
-        imgMarca.onload = () => {
-            imagemVeiculo.src = imagemMarca
-            mensagemImagem.textContent = `Não há imagens deste carro no momento, porém o mais semelhante é um modelo da ${marca}.`
-        }
+    try {
+        const response = await fetch(`${API_IMAGE}?brand=${marca}&model=${modelo || ''}`)
+        const dados = await response.json()
 
-        imgMarca.onerror = () => {
+        if (dados && dados.length > 0) {
+            // Usa primeira imagem disponível
+            imagemVeiculo.src = dados[0].image
+            mensagemImagem.textContent = ""
+        } else {
+            // Sem imagem específica
             imagemVeiculo.src = imagemPadrao
-            mensagemImagem.textContent = "Não há imagens deste carro no momento, e nenhum modelo semelhante foi encontrado."
+            mensagemImagem.textContent = modelo ? `Não há imagens deste carro no momento. Exibindo ${marca} genérico.` : "Não há imagens deste carro no momento."
         }
+    } catch (erro) {
+        console.error("Erro ao buscar imagem:", erro)
+        imagemVeiculo.src = imagemPadrao
+        mensagemImagem.textContent = "Erro ao carregar imagem."
     }
 }
